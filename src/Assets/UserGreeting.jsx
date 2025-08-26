@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const UserGreeting = (props) => {
+const UserGreeting = ( {
+    isLoggedIn= false,
+    username= "Guest",
+}) => {
     const welcomeMessage = <h2 className='welcome-message'>
-        Welcome {props.username}
+        Welcome {username}
     </h2>
     const loginprompt = <h2 className='login-prompt'>Please Login to continue</h2>
-    return (props.isLoggedIn ?
+    return (isLoggedIn ?
         welcomeMessage : loginprompt
 
     )
@@ -14,10 +17,6 @@ const UserGreeting = (props) => {
 UserGreeting.propTypes = {
     isLoggedIn: PropTypes.bool,
     username: PropTypes.string,
-}
-UserGreeting.defaultProps = {
-    isLoggedIn: false,
-    username: "Guest",
 }
 
 
