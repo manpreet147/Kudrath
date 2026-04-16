@@ -22,6 +22,9 @@ import NoPage from './pages/NoPage';
 import Loginregister from './Loginregister/Loginregister';
 import { colors } from '@mui/material';
 import { red } from '@mui/material/colors';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { ToggleSwitch } from './Assets/ToggleSwitch/ToggleSwitch';
 
 const Counter = () => {
   const count = useSelector((state) => state); // Ensure this matches your reducer structure
@@ -87,6 +90,7 @@ const App = () => {
               <Plants name="Orange" harvest={15} isPlant={true} />
               <Plants name="Chillies" harvest={20} isPlant={true} />
               <Plants name="Rose" />
+              <ToggleSwitch />
               <Footer /> 
             </>}/>
           <Route path='/about' element={<h1 style={{ color: "red" }}>About Page</h1>} />

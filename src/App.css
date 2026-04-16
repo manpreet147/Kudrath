@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.slick-list {
+  min-height: 300px;  /* Force the carousel to show space for slides */
+}
