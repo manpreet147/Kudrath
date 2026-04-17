@@ -49,11 +49,13 @@ const Loginregister = ({ onNavigateAway }) => {
         body: JSON.stringify(formData)
       });
       if (response.ok) {
-        onNavigateAway()
-        alert("Login successful");
-      }
-      else {
-        alert("Unable to Login!")
+        const data = await response.json();
+        console.log(data);
+        onNavigateAway();
+      } else {
+        const err = await response.text();
+        console.error(err);
+        alert("Login failed");
       }
     } catch (error) {
       console.error(error);
@@ -95,21 +97,28 @@ const Loginregister = ({ onNavigateAway }) => {
             <TextField label="Email" value={formData.email || ""} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
           </FormControl>
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? 'text' : 'password'}
-              value={formData.password || ""}
-              onChange={(e) =>
-                setFormData({ ...formData, password: e.target.value })
-              }
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton onClick={handleClickShowPassword} edge="end">
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
+            <InputLabel>Password</InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password"
+                type={showPassword ? 'text' : 'password'}
+                value={formData.password || ""}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  console.log("Password:", value);
+                  setFormData(prev => ({
+                      ...prev,
+                      password: e.target.value
+                    }));             
+                  }}
+                label="Password"
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton onClick={handleClickShowPassword} edge="end">
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
           </FormControl>
 
           <FormGroup>
