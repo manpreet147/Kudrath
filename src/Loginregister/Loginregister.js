@@ -14,7 +14,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 
 const Loginregister = ({ onNavigateAway }) => {
 
-  const [action, setAction] = useState('');
+  const [isRegister, setIsRegister] = useState(false); 
   const [formData, setFormData] = useState({
     email: "", password: ""
   });
@@ -31,11 +31,11 @@ const Loginregister = ({ onNavigateAway }) => {
   };
 
   const registerLink = () => {
-    setAction(' active');
+  setIsRegister(true);
   };
 
   const loginLink = () => {
-    setAction('');
+    setIsRegister(false);
   }
 
   const handleLogin = async (e) => {
@@ -89,7 +89,7 @@ const Loginregister = ({ onNavigateAway }) => {
 
 
   return (
-    <div className={`wrapper${action}`} >
+    <div className={`wrapper ${isRegister ? 'active' : ''}`}>
       <div className="form-box login">
         <form onSubmit={handleLogin}>
           <h1>Login</h1>

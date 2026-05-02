@@ -75,7 +75,7 @@ form .input-box{
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba(red, green, blue, alpha);
+    border: 2px solid rgba(0, 0, 0, 0.2);
     padding: 20px 45px 20px 20px;
 }
 
@@ -128,7 +128,7 @@ form button {
     border: none;
     outline: none;
     border-radius: 30px;
-    box-shadow: 0 0 10px rgb(79, 62, 41, .1);
+    box-shadow: 0 0 10px rgba(79, 62, 41, 0.1);
     cursor: pointer;
     font-size: 15px;
     color: #3c009d;
