@@ -1,31 +1,15 @@
 import React from 'react'
-import Slider from 'react-slick';
-import Card2 from './Cards/Card2';
 import Card1 from './Cards/Card1';
+import Card2 from './Cards/Card2';
 
 const Carousel = () => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed : 500,
-        slidesToShow : 2,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed : 2000,
-      };
-
   return (
-    <div style={{ width: "80%", margin: "0 auto", padding: "20px", background: "#f8f8f8" }}>
-     <Slider {...settings}>
-    <div>
-      <p>display1</p>
+    <div style={{ width: '80%', maxWidth: '1000px', margin: '0 auto', padding: '20px', background: '#f8f8f8' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+        <Card1 />
+        <Card2 />
+      </div>
     </div>
-    <div>
-      <p>hello</p>
-    </div>
-    </Slider>
-    </div>
-
   )
 }
 

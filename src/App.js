@@ -11,7 +11,7 @@ import ProfilePic from './Assets/ProfilePic';
 import MyComponent from './Assets/MyComponent/MyComponent';
 import MyComponent1 from './Assets/MyComponent/MyComponent1';
 import Carousel from './Assets/Carousel';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from './pages/Layout';
@@ -22,8 +22,6 @@ import NoPage from './pages/NoPage';
 import Loginregister from './Loginregister/Loginregister';
 import { colors } from '@mui/material';
 import { red } from '@mui/material/colors';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { ToggleSwitch } from './Assets/ToggleSwitch/ToggleSwitch';
 
 const Counter = () => {
