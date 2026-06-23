@@ -1,9 +1,18 @@
-from sqlalchemy import Column, Integer, String, TIMESTAMP
+from sqlalchemy import Column, Integer, String, TIMESTAMP, Text, Float
 from sqlalchemy.sql import func
 from db import engine
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
+
+class Product(Base):
+    __tablename__ = "products"
+
+    id  = Column(Integer, primary_key = True, index = True)
+    name = Column(String)
+    price = Column(Float)
+    quantity = Column(Integer)
+    image_url = Column(Text)
 
 class User(Base):
     __tablename__ = "users"

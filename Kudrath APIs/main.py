@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from router.employee import router, employee_data
 from pydantic import BaseModel
 from db import SessionLocal
-from models import LoginHistory, User
+from models import LoginHistory, User, Product
 
 app = FastAPI()
 
@@ -61,6 +61,22 @@ def login(data: LoginRequest):
 @app.get("/items/{item_id}")
 async def read_item(item_id: int):
     return {"item_id": item_id}
+
+@app.get("/products")
+def get_product():
+    db = SessionLocal()
+    products = db.query(Product).all()
+    result = []
+    for product in products:
+        result.append({
+            "id": product.id,
+            "name": product.name,
+            "price": product.price,
+            "quantity": product.quantity,
+            "image_url": product.image_url
+        })
+    db.close()
+    return result
 
 app.add_middleware(
     CORSMiddleware,
