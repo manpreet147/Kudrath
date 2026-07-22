@@ -18,6 +18,10 @@ const Employees = () => {
     return(
         <div style = {{padding: "20px"}}>
             <h1>Employee List</h1>
+
+            {employees.map(emp) => (
+                <div  
+            )}
         </div>
     )
 }
